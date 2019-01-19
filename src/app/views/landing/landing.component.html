@@ -1,0 +1,16 @@
+<h2>Coach list</h2>
+
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Last Name</th>
+        <th scope="col">First Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coach of coaches">
+        <td>{{coach.nom}}</td>
+        <td>{{coach.prenom}}</td>
+      </tr>
+    </tbody>
+  </table>

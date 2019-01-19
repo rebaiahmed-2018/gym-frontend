@@ -1,0 +1,34 @@
+<div *ngFor = 'let session of sessions' class="list-group list-group-accent">
+  <div class="list-group-item list-group-item-accent-secondary bg-light text-center font-weight-bold text-muted text-uppercase small">
+      <div class="row align-items-center">
+          <div class="col   text-left">
+      {{session.date}}
+            </div>
+            <div class="col justifiy-content-end text-right ">
+                <input  [matDatepicker]="picker" style="visibility: hidden">
+
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker-toggle [for]="picker"></mat-datepicker-toggle>
+        </div>
+      </div>
+
+  </div>
+
+  <div *ngFor = 'let excercice of session.exercices' class="list-group-item list-group-item-accent-warning list-group-item-divider">
+    <div class="avatar float-right">
+      <img class="img-avatar" src="assets/img/avatars/0.jpg" alt="admin@bootstrapmaster.com">
+    </div>
+    <div>{{excercice.name}} with
+      <strong>{{session.coach.nom}}</strong>
+    </div>
+    <small class="text-muted mr-3">
+      <i class="icon-clock"></i>  20 minutes</small>
+    <small class="text-muted">
+      <i class="icon-location-pin"></i>  Bouzayen's gym</small>
+  </div>
+
+ 
+ 
+    
+    
+</div>

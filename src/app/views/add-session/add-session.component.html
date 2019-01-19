@@ -1,0 +1,72 @@
+<div class="app-body " style="margin-top : 100px ; ">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+        <div class="col">
+            <div class="card">
+              <div class="card-header">
+                <strong>Add an exercice session</strong> 
+              </div>
+              <div class="card-body">
+          
+                  <form   [formGroup]="sessionData">
+                      
+                      <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="icon-user"></i></span>
+                        </div>
+                        <input  type="text" formControlName="member" class="form-control"  autocomplete="member"  id="member" placeholder="member name"
+                        required>
+                      </div>
+                      <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="icon-calendar"></i></span>
+                        </div>
+    
+                        <input  type="date" formControlName="date" class="form-control"  id="date"  placeholder="the session's date"
+                        required>
+                        
+
+                      </div>
+                      <div class="input-group mb-4">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="icon-note"></i></span>
+                        </div>
+    
+                    
+                                               
+                       <textarea name="description" id="description" cols="10" rows="3" formControlName="description" class="form-control" placeholder="description"></textarea>
+                      </div>
+                      <div class="input-group mb-4">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="icon-energy"></i></span>
+                          </div>
+      
+                      
+                          <input  type="exercice" formControlName="exercice" class="form-control"  id="exercice"  placeholder="the exercice"
+                          required>
+                          <button class="btn btn-primary " (click)= "add()" >Add</button>
+                          
+                         
+                        </div>
+
+                    <div class="input-group mb-4">
+                          <div *ngFor="let exercice of exercices" class="mr-3 mb-2">
+                          
+                            {{exercice}} <button type="reset" class="btn  btn-danger" (click)="dropExercice(this)" ><i class="fa fa-trash" ></i></button>
+                        
+                       </div>
+                        </div>
+                        
+                        <div  id='helloD'></div>
+                      </form>
+              </div>
+              <div class="card-footer">
+                <button type="submit" class="btn  btn-success mr-3" (click)= "onSubmit()"><i class="fa fa-dot-circle-o"></i> Submit</button>
+                <button type="reset" class="btn  btn-danger"><i class="fa fa-ban"></i> Reset</button>
+              </div>
+              
+            </div>
+          </div>
+    </div>
+  </main>
+</div>

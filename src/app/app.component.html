@@ -1,0 +1,65 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header
+  [fixed]="true"
+  [navbarBrandFull]="{src: 'assets/img/brand/logo.svg', width: 89, height: 25, alt: 'CoreUI Logo'}"
+  [navbarBrandMinimized]="{src: 'assets/img/brand/sygnet.svg', width: 30, height: 30, alt: 'CoreUI Logo'}"
+  [asideMenuToggler]="false" 
+  [sidebarToggler]="false"
+  [mobileAsideMenuToggler]="false" 
+  [mobileSidebarToggler]="false">
+  <ul class="nav navbar-nav ml-auto">
+    <li>
+      <button *ngIf="!this.isAuthenticated" class="btn btn-primary mr-3" routerLink = '/register'>
+          Register
+      </button>
+    </li>
+    <li>
+        <button *ngIf="!this.isAuthenticated" class="btn btn-success mr-3" routerLink = '/'>
+            Login
+        </button>
+      </li>
+    <li>
+        <button *ngIf="this.isAuthenticated" class="btn btn-success mr-3" routerLink = '/list-members'>
+            List Members
+        </button>
+    </li>
+    <li>
+        <button *ngIf="this.isAuthenticated" class="btn btn-success mr-3" routerLink = '/list-coachs'>
+            List Coachs
+        </button>
+    </li>
+    <li>
+      <button *ngIf="this.isAuthenticated" class="btn btn-success mr-3" routerLink = '/list-admins'>
+          List Admins
+      </button>
+    </li>
+    <li *ngIf="this.isAuthenticated">
+          <button  class="btn btn-danger mr-3" routerLink = '/session'>
+              Add Session
+          </button>
+      </li>
+      <li *ngIf="this.isAuthenticated">
+          <button class="btn btn-danger mr-3" routerLink = '/exercice'>
+              Add Exercice
+          </button>
+      </li>
+    <li *ngIf="this.isAuthenticated" class="nav-item dropdown" dropdown placement="bottom right" >
+      <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle (click)="false">
+        <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com"/>
+      </a>
+      <div class="dropdown-menu dropdown-menu-right" *dropdownMenu aria-labelledby="simple-dropdown">
+        <div *ngIf="this.isAuthenticated" class="dropdown-header text-center"><strong>{{user.nom + " " + user.prenom}}</strong></div>
+        <!-- <a *ngIf="this.isAuthenticated" class="dropdown-item" href="#"><i class="fa fa-bell-o"></i> Updates<span class="badge badge-info">42</span></a>
+        <a *ngIf="this.isAuthenticated" class="dropdown-item" href="#"><i class="fa fa-envelope-o"></i> Messages<span class="badge badge-success">42</span></a>
+        <a *ngIf="this.isAuthenticated" class="dropdown-item" href="#"><i class="fa fa-tasks"></i> Tasks<span class="badge badge-danger">42</span></a>
+        <div *ngIf="this.isAuthenticated" class="dropdown-header text-center"><strong>Settings</strong></div> -->
+        <a *ngIf="this.isAuthenticated" class="dropdown-item" (click)="openProfile()"><i class="fa fa-user"></i> Profile</a>
+        <div class="divider"></div>
+        <a *ngIf="this.isAuthenticated" class="dropdown-item" href="#" (click)="logout()"><i class="fa fa-lock"></i> Logout</a>
+      </div>
+    
+    </li>
+  </ul>
+</app-header>
+    <router-outlet style="margin-top: 100px"></router-outlet>
+

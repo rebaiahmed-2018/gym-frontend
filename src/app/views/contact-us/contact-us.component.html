@@ -1,0 +1,68 @@
+<div class="app-body " style="margin-top: 200px">
+  <main class="main d-flex align-items-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form method="post"  [formGroup]="loginData">
+                  <h1>Contact Us</h1>
+                  <p class="text-muted">Have a question ? we'll answer you as soon as possible</p>
+                  <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-user"></i></span>
+                    </div>
+                    <input  type="text" formControlName="name" class="form-control"   autocomplete="name"  id="name" placeholder="Your name"
+                    required>
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+
+                    <input  type="text" formControlName="email" class="form-control"   autocomplete="email"  id="email" placeholder="Your email"
+                    required>
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+
+                    <input  type="text" formControlName="subject" class="form-control"   autocomplete="subject"  id="subject" placeholder="Your subject"
+                    required>
+                  </div>
+                  <div class="input-group mb-4">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="icon-lock"></i></span>
+                    </div>
+
+                    <textarea  formControlName="message" class="form-control"   autocomplete="message"  id="message" placeholder="Your message"
+                    required> </textarea>
+                  </div>
+                  <div class="row">
+                    <div class="col-6">
+                      <button type="button" class="btn btn-primary px-4" (click)="onSubmit()">Send</button>
+                      
+                    </div>
+                   
+                  </div>
+                </form>
+                <div  *ngIf = "isSent" style=" margin-top: 1rem !important;" class="alert alert-success" role="alert">
+                  <p >
+                    Message sent successfuly!
+                  </p>
+                </div>
+                <div  *ngIf = "!isSent && loading" style=" margin-top: 1rem !important;" class="alert alert-danger" role="alert">
+                  <p >
+                    Error while sending message ..
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

@@ -1,0 +1,43 @@
+<!--/.col-->
+<div class="col " style="margin-top: 350 px" > 
+
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-group      "></i>  Member's List
+      </div>
+      <div class="card-body">
+        <table class="table table-bordered table-striped">
+          <thead>
+            <tr>
+              <th>nom Complet</th>
+              <th>Demail</th>
+              <th>Username</th>
+              <th>Birthday</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor ="let member of members">
+              <td>{{member.prenom}} {{member.nom}}</td>
+              <td>{{member.email}}</td>
+              <td>{{member.username}}</td>
+              <td>{{member.dateNaissance}} </td>
+              <td>
+                <span *ngIf= "member.accountNonExpired" class="badge badge-success">Active</span>
+                <span *ngIf= "!member.accountNonLocked" class="badge badge-danger">Locked</span>
+                <span *ngIf= "!member.credentialsNonExpired" class="badge badge-warning">Credentials Expired</span>
+              </td>
+              <td>
+                <button class="btn btn-success mr-3 btn-sm" (click)="edit(member.username)" > <i class="fa fa-pencil"></i> Edit</button>
+                <button class="btn btn-danger btn-sm" (click)="deleteUser(member.id)"> <i class="fa fa-trash"></i> Delete</button>
+              </td>
+            </tr>
+         
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
